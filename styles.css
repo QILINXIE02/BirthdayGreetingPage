@@ -1,118 +1,91 @@
-/* styles.css */
-body {
+/* Reset default margins and paddings */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: 'Lobster', cursive;
-  background-color: #ffebcd;
-  overflow: hidden;
+  background-color: #f0f8ff;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
 }
 
 .container {
   position: relative;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.parallax {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('background.jpg');
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-}
-
-.content {
   text-align: center;
-  color: #ff1493;
-  padding: 20px;
+  color: #fff;
+  width: 100%;
+  max-width: 1200px; /* Adjust to your preferred width */
+  margin: 0 auto;
 }
 
-h1 {
-  font-size: 3rem;
-  margin: 20px 0;
-  color: #ff69b4;
-}
-
-p {
-  font-size: 1.5rem;
-  color: #ff1493;
-}
-
-.balloons {
-  position: relative;
-  height: 300px;
-}
-
-.balloon {
-  position: absolute;
-  width: 80px;
-  height: 120px;
-  background-color: #ff69b4;
-  border-radius: 50% 50% 0 0;
-  box-shadow: 0 0 0 5px #fff inset;
-}
-
-#balloon1 {
-  left: 10%;
-  animation: float 4s infinite;
-}
-
-#balloon2 {
-  left: 40%;
-  animation: float 6s infinite;
-}
-
-#balloon3 {
-  left: 70%;
-  animation: float 5s infinite;
-}
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-100px); }
-  100% { transform: translateY(0); }
-}
-
-.balloon:before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 2px;
-  height: 80px;
-  background-color: #ff1493;
-  transform: translateX(-50%);
-}
-
-body {
-  background-color: #ffebcd; /* Blanched Almond */
-}
-
-h1 {
-  color: #ff69b4; /* Hot Pink */
-}
-
-p {
-  color: #ff1493; /* Deep Pink */
-}
-
-.balloons {
-  background-color: #fff; /* White */
-}
-
+/* Styles for the background image container */
 .parallax {
+  background-image: url('background.jpg');
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: rotate(-90deg); /* Rotate 90 degrees counterclockwise */
+  transform-origin: center center;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100vh;
-  background-image: url('background.jpg');
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
   z-index: -1;
+}
+
+/* Styles for balloon images */
+.balloon {
+  width: 100px;
+  height: 150px;
+  background: url('balloon.png') no-repeat center center;
+  background-size: cover;
+  display: inline-block;
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* Styling for content */
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.8); /* Slightly opaque background for contrast */
+}
+
+/* Heading styling */
+h1 {
+  font-size: 2.5rem; /* Consistent font size */
+  color: #ff1493;
+  margin-bottom: 10px;
+}
+
+/* Paragraph styling */
+p {
+  font-size: 1.25rem; /* Slightly smaller than heading */
+  margin-bottom: 20px;
+}
+
+/* Ensure responsiveness */
+@media (max-width: 768px) {
+  .balloon {
+    width: 80px;
+    height: 120px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
 }
